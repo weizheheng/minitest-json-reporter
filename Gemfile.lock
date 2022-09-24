@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    minitest-json-reporter (0.0.0)
+    minitest-json-reporter (0.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -41,6 +41,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   debug (~> 1.6.2)
