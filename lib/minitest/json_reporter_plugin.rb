@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "minitest"
 require "json"
 
 module Minitest
