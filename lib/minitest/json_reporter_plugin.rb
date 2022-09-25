@@ -35,7 +35,7 @@ module Minitest
       results << {
         name: result.name,
         status: result.passed? ? "PASS" : "FAIL",
-        failures: failure.error.to_s,
+        failures: failure ? failure.error.to_s : "",
         line: line.to_i
       }.to_json
     end
