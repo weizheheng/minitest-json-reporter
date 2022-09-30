@@ -41,7 +41,7 @@ module Minitest
     end
 
     def report
-      results.each { |result| io.puts result }
+      results.each { |result| io.write "\n#{result}" }
     end
   end
 end

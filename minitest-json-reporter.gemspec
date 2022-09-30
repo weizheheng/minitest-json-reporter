@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "minitest-json-reporter"
-  spec.version = "0.1.3"
+  spec.version = "0.1.4"
   spec.authors = ["Wei Zhe Heng"]
   spec.email = ["tech@weizheheng.com"]
 
