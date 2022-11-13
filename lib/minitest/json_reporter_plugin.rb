@@ -16,14 +16,19 @@ module Minitest
   end
 
   class JsonReporter < AbstractReporter
-    attr_accessor :io, :results
+    attr_accessor :io, :results, :assertions, :failures
 
     def initialize(options)
       @io = options[:io]
       @results = []
+      @assertions = 0
+      @failures = 0
     end
 
     def record(result)
+      self.assertions += result.assertions
+      self.failures += result.failures.size
+
       line = result.source_location[-1]
       failure = result.failures[0]
 
@@ -41,7 +46,18 @@ module Minitest
     end
 
     def report
-      results.each { |result| io.write "\n#{result}" }
+      io.write(
+        JSON.dump(
+          {
+            examples: results,
+            statistics: {
+              assertions: assertions,
+              failures: failures
+            }
+          }
+        )
+      )
+      # results.each { |result| io.write "\n#{result}" }
     end
   end
 end
