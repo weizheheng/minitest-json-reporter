@@ -32,8 +32,8 @@ module Minitest
       line = result.source_location[-1]
       failure = result.failures[0]
 
-      if failure
-        # "/Users/marcusheng/projects/rails/budgetyourtime/test/models/user_test.rb:11"
+      if failure && !failure.is_a?(Minitest::UnexpectedError)
+        # "/Users/marcusheng/projects/rails/sample_project/test/models/user_test.rb:11"
         line = failure.location.split("/")[-1].split(":")[-1]
       end
 
